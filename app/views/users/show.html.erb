@@ -1,19 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
-  <strong>Salt:</strong>
-  <%= @user.salt %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="col-xs-8" id="users-content">
+  <div class="user-info">
+    <span class="user-name">
+      <%= @user.name %>
+    </span>
+    <span class="user-id">
+      <%= @user.name %>
+    </span>
+    <div class="bio">
+      <%= @user.bio %>
+    </div>
+  </div>
+</div>
