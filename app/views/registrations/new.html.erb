@@ -1,2 +1,43 @@
-<h1>Registrations#new</h1>
-<p>Find me in app/views/registrations/new.html.erb</p>
+<div class="container">
+  <div id="registrations-new">
+    <div class="row">
+      <div class="col left-content">
+        <h1>#PortfoliAapp</h1>
+        <p class="ex">
+          このサイトは転職活動用に作成したポートフォリオです。
+        </p>
+        <p class="by">
+          開発者：出村和彦
+        </p>
+      </div>
+      <div class="col right-content">
+        <%= form_for @user, url: registrations_path, method: :post do |f| %>
+          <h2>会員登録</h2>
+          <% @user.errors.each do |attr, message| %>
+            <div class="alert alert-danger">
+              <%= message %>
+            </div>
+          <% end %>
+          <div class="form-group">
+            <%= f.label :name, "ユーザーID", class: "control-label" %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email,"メールアドレス", class: "control-label" %>
+            <%= f.text_field :email, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password, "パスワード：６文字以上", class: "control-label" %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, "確認用パスワード：６文字以上", class: "control-label" %>
+            <%= f.password_field :password_confirmation, class: "form-control" %>
+          </div>
+          <%= f.submit "登録", class: "btn btn-primary" %>
+          <div class="clear"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
