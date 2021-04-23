@@ -35,6 +35,8 @@ group :development, :test do
   gem 'bootstrap'
   gem 'pry-rails'
   gem 'record_tag_helper'
+  gem 'jquery-rails' 
+  gem 'jquery-ui-rails'
 end
 
 group :development do
