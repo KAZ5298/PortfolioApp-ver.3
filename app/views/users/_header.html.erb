@@ -25,23 +25,23 @@
           </div>
         <% end %>
       </li>
-      <li>
-        <%= link_to nil do %>
+      <li class="<%= action_name == "follows" ? "active" : nil %>">
+        <<%= link_to follows_user_path(@user) do %>
           <div class="text">
             フォロー
           </div>
           <div class="num">
-            0
+            <%= @user.inverse_followers.count %>
           </div>
         <% end %>
       </li>
-      <li>
-        <li class="<%= action_name == "favorites" ? "active" : nil %>">
+      <li class="<%= action_name == "followers" ? "active" : nil %>">
+        <%= link_to followers_user_path(@user) do %>
           <div class="text">
             フォロワー
           </div>
           <div class="num">
-            0
+            <%= @user.followers.count %>
           </div>
         <% end %>
       </li>
@@ -51,7 +51,7 @@
             お気に入り
           </div>
           <div class="num">
-            0
+            <%= @user.favorites.count %>
           </div>
         <% end %>
       </li>
