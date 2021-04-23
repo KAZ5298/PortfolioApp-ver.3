@@ -6,9 +6,9 @@ class SettingsController < ApplicationController
   end
  
   def update
-    #@user = current_user.assign_attributes(params_user)
-    @user = User.find(params[:id])
-    if @user.update(params_user)
+    @user = current_user
+    @user.assign_attributes(params_user)
+    if @user.save
       redirect_to user_url(@user), notice: "プロフィールを更新しました"
     else
       render :edit, notice: "プロフィールの更新に失敗しました"
