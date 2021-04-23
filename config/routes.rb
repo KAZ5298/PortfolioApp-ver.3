@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resource :settings, only: [:edit, :update]
   resource :registrations, only: [:new, :create]
   resources :users, only: [:index, :show]
+  resources :tweets
   root to: 'registrations#new'
 end

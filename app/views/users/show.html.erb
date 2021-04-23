@@ -14,5 +14,47 @@
     <div class="bio">
       <%= @user.bio %>
     </div>
+    <ul class="nav nav-tabs nav-justified">
+      <li class="active">
+        <%= link_to user_path(@user) do %>
+          <div class="text">
+            つぶやき
+          </div>
+          <div class="num">
+            <%= @user.tweets.count %>
+          </div>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to nil do %>
+          <div class="text">
+            フォロー
+          </div>
+          <div class="num">
+            0
+          </div>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to nil do %>
+          <div class="text">
+            フォロワー
+          </div>
+          <div class="num">
+            0
+          </div>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to nil do %>
+          <div class="text">
+            お気に入り
+          </div>
+          <div class="num">
+            0
+          </div>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </div>

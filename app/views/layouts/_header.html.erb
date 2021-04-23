@@ -5,6 +5,7 @@
     </div>
     <% if logged_in? %>
       <ul class="nav navbar-nav">
+        <li><%= link_to "全ツイート一覧", tweets_path %></li>
         <li><%= link_to "ユーザー一覧", users_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
