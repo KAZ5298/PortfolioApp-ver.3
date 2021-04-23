@@ -4,11 +4,18 @@ class SessionsController < ApplicationController
   end
   
   def create
-    email    = params_user[:email]
-    password = params_user[:password]
- 
-    if login(email, password)
-      redirect_to root_url, notice: "successfully logged in."
+    #email    = params_user[:email]
+    #password = params_user[:password]
+    #if login(email, password)
+    #  redirect_to root_url, notice: "successfully logged in."
+    #else
+    #  @user = User.new(email: email)
+    #  render :new
+    #end
+    user = User.find_by(params[:email])
+    #binding.pry
+    if user && user.authenticate(params_user[:password])
+      redirect_to root_url, notice: "OK"
     else
       @user = User.new(email: email)
       render :new
