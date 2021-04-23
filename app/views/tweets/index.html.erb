@@ -80,6 +80,13 @@
               <p>
                 <%= t.content %>
               </p>
+              <div class="content-footer">
+                <% if t.favorited_by? current_user %>
+                  <%= link_to "お気に入りの解除", tweet_favorites_path(t), method: :delete %>
+                <% else %>
+                  <%= link_to "お気に入りに登録", tweet_favorites_path(t), method: :post %>
+                <% end %>
+              </div>
             </div>
           <% end %>
         </div>
