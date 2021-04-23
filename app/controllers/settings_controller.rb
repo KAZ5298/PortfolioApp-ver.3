@@ -2,7 +2,11 @@ class SettingsController < ApplicationController
   include SessionsHelper
   
   def edit
-    @user = current_user
+    unless logged_in?
+      redirect_to new_sessions_path, notice: "ログインしてください"
+    else
+      @user = current_user
+    end
   end
  
   def update

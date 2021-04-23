@@ -10,15 +10,15 @@ class RegistrationsController < ApplicationController
     @user = User.new(params_user)
  
     if @user.save
-      #会員登録後、ログインするように
-      redirect_to tweets_url
+      log_in(@user)
+      redirect_to tweets_url, notice: "新規登録しました"
     else
       render :new
     end
   end
  
   private
- 
+  
   def params_user
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
