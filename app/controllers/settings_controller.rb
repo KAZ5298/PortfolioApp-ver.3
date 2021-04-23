@@ -7,10 +7,10 @@ class SettingsController < ApplicationController
  
   def update
     @user = current_user
-    if @user.update_attributes(params_user)
+    if @user.save
       redirect_to user_url(@user), notice: "プロフィールを更新しました"
     else
-      render :edit
+      render :edit, notice: "プロフィールの更新に失敗しました"
     end
   end
  

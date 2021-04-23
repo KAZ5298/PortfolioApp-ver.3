@@ -1,97 +1,53 @@
-        <% if logged_in? %>
-          <div class="panel panel-default">
-            <div class="panel-body">
-              <%= link_to user_path(current_user), class: "user" do %>
-                <span class="user-name">
-                  <%= render_user_screen_name current_user %>
-                </span>
-                <span class="user-id">
-                  <%= current_user.name %>
-                </span>
-              <% end %>
-              <div class="user-activity">
-                <div class="row">
-                  <div class="col-4 tweets-num">
-                    <div class="text">
-                      つぶやき
-                    </div>
-                    <div class="num">
-                      <%= link_to current_user.tweets.count, user_path(current_user) %>
-                    </div>
-                  </div>
-                  <div class="col-4 follow-num">
-                    <div class="text">
-                      フォロー
-                    </div>
-                    <div class="num">
-                      <%= link_to current_user.inverse_followers.count, follows_user_path(current_user) %>
-                    </div>
-                  </div>
-                  <div class="col-4 follower-num">
-                    <div class="text">
-                      フォロワー
-                    </div>
-                    <div class="num">
-                      <%= link_to current_user.followers.count, followers_user_path(current_user) %>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <% @tweet.errors.full_messages.each do |message| %>
-                <div class="alert alert-danger">
-                  <%= message %>
-                </div>
-              <% end %>
-              <%= form_for @tweet do |f| %>
-                <div class="form-group">
-                  <%= f.text_area :content, class: "form-control" %>
-                </div>
-                <%= f.submit "ツイート", class: "btn btn-success" %>
-              <% end %>
+<% if logged_in? %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <%= link_to user_path(current_user), class: "user" do %>
+        <span class="user-name">
+          <%= render_user_screen_name current_user %>
+        </span>
+        <span class="user-id">
+          <%= current_user.name %>
+        </span>
+      <% end %>
+      <div class="user-activity">
+        <div class="row">
+          <div class="col-4 tweets-num">
+            <div class="text">
+              つぶやき
+            </div>
+            <div class="num">
+              <%= link_to current_user.tweets.count, user_path(current_user) %>
             </div>
           </div>
-        <% end %>
-      </div>
-      <div class="col-8 right-content">
-        <% if notice %>
-          <div class="alert alert-info">
-            <%= notice %>
-          </div>
-        <% end %>
-        <div class="list-group">
-          <%= content_tag @tweets, class: "list-group-item" do |t| %>
-            <h4 class="user">
-              <span class="user-name">
-                <%= link_to render_user_screen_name(t.user), user_path(t.user) %>
-              </span>
-              <span class="user-id">
-                <%= t.user.name %>
-              </span>
-              <span class="time pull-right">
-                <%= distance_of_time_in_words_to_now(t.created_at) %>
-              </span>
-              <div class="clear"></div>
-            </h4>
-            <div class="tweet-content">
-              <p>
-                <%= t.content %>
-              </p>
-              <div class="content-footer">
-                <% if t.favorited_by? current_user %>
-                  <%= link_to "お気に入りの解除", tweet_favorites_path(t), method: :delete %>
-                <% else %>
-                  <%= link_to "お気に入りに登録", tweet_favorites_path(t), method: :post %>
-                <% end %>
-                <% if t.user.followed_by? current_user %>
-                  <%= link_to "フォロー解除", user_follows_path(t.user), method: :delete %>
-                <% else %>
-                  <%= link_to "フォロー", user_follows_path(t.user), method: :post %>
-                <% end %>
-              </div>
+          <div class="col-4 follow-num">
+            <div class="text">
+              フォロー
             </div>
-          <% end %>
+            <div class="num">
+              <%= link_to current_user.inverse_followers.count, follows_user_path(current_user) %>
+            </div>
+          </div>
+          <div class="col-4 follower-num">
+            <div class="text">
+              フォロワー
+            </div>
+            <div class="num">
+              <%= link_to current_user.followers.count, followers_user_path(current_user) %>
+            </div>
+          </div>
         </div>
       </div>
+      <% @tweet.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= form_for @tweet do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content, class: "form-control" %>
+        </div>
+        <%= f.submit "ツイート", class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
-</div>
+<% end %>
