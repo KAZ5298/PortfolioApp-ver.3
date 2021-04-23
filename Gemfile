@@ -34,6 +34,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
   gem 'bootstrap'
   gem 'pry-rails'
+  gem 'record_tag_helper'
 end
 
 group :development do
