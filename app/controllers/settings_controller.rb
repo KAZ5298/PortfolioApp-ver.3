@@ -1,4 +1,6 @@
 class SettingsController < ApplicationController
+  include SessionsHelper
+  
   def edit
     @user = current_user
   end
@@ -16,9 +18,5 @@ class SettingsController < ApplicationController
  
   def params_user
     params.require(:user).permit(:name, :screen_name, :bio)
-  end
-  
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
   end
 end
