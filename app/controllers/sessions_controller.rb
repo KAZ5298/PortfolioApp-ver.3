@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     user = User.find_by(params[:email])
     if user && user.authenticate(params_user[:password])
       log_in(user)
-      redirect_to root_url, notice: "OK"
+      redirect_to root_url, notice: "ログインしました"
     else
       @user = User.new(email: email)
       render :new
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
   def destroy
     session.delete(:user_id)
     @current_user = nil
-    redirect_to root_url
+    redirect_to root_url, notice: "ログアウトしました"
   end
  
   private

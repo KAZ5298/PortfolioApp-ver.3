@@ -9,6 +9,13 @@
         <p class="by">
           開発者：出村和彦
         </p>
+        <% if notice %>
+          <p>
+            <div class="alert alert-info">
+              <%= notice %>
+            </div>
+          </p>
+        <% end %>
       </div>
       <div class="col right-content">
         <%= form_for @user, url: registrations_path, method: :post do |f| %>
