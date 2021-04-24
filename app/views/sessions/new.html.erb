@@ -7,6 +7,13 @@
             メールアドレスまたはパスワードが正しくありません。
           </div>
         <% end %>
+        <% if notice %>
+          <p>
+            <div class="alert alert-info">
+              <%= notice %>
+            </div>
+          </p>
+        <% end %>
         <%= form_for @user, url: sessions_path, method: :post do |f| %>
           <h2>ログイン</h2>
           <div class="form-body">
