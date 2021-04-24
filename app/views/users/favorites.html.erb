@@ -1,0 +1,11 @@
+<div class="col-xs-8" id="users-content">
+  <%= render partial: "users/header" %>
+  <div class="list-group">
+    <% if @user.favorites.empty? %>
+      <div class="list-group-item">
+        まだお気に入りに登録されたツイートはありません
+      </div>
+    <% end %>
+    <%= render partial: "users/tweet", collection: @user.favorites.map{|f| f.tweet} %>
+  </div>
+</div>

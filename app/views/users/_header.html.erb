@@ -1,0 +1,58 @@
+<div class="user-info">
+  <% if notice %>
+    <div class="alert alert-info">
+      <%= notice %>
+    </div>
+  <% end %>
+  <span class="user-name">
+    <%= render_user_screen_name(@user) %>
+  </span>
+  <span class="user-id">
+    <%= @user.name %>
+  </span>
+  <div class="bio">
+    <%= @user.bio %>
+  </div>
+  <ul class="nav nav-tabs nav-justified">
+    <li class="<%= action_name == "show" ? "active" : nil %>">
+      <%= link_to user_path(@user) do %>
+        <div class="text">
+          つぶやき
+          </div>
+        <div class="num">
+          <%= @user.tweets.count %>
+        </div>
+      <% end %>
+    </li>
+    <li class="<%= action_name == "follows" ? "active" : nil %>">
+      <%= link_to follows_user_path(@user) do %>
+        <div class="text">
+          フォロー
+        </div>
+        <div class="num">
+          <%= @user.inverse_followers.count %>
+        </div>
+      <% end %>
+    </li>
+    <li class="<%= action_name == "followers" ? "active" : nil %>">
+      <%= link_to followers_user_path(@user) do %>
+        <div class="text">
+          フォロワー
+        </div>
+        <div class="num">
+          <%= @user.followers.count %>
+        </div>
+      <% end %>
+    </li>
+    <li>
+      <%= link_to favorites_user_path(@user) do %>
+        <div class="text">
+          お気に入り
+        </div>
+        <div class="num">
+          <%= @user.favorites.count %>
+        </div>
+      <% end %>
+    </li>
+  </ul>
+</div>

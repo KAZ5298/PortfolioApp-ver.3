@@ -1,0 +1,25 @@
+<div id="tweets-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-4 left-content">
+        <%= render partial: "panel" %>
+      </div>
+      <div class="col-xs-8 right-content">
+        <% if notice %>
+          <div class="alert alert-info">
+            <%= notice %>
+          </div>
+        <% end %>
+        <div class="list-group">
+          <div class="list-group-item">
+            <div class="btn-group">
+              <%= link_to "すべてのつぶやき", tweets_path, class: "active btn btn-primary" %>
+              <%= link_to "フォローしている人のつぶやき", timeline_tweets_path, class: "btn btn-default" %>
+            </div>
+          </div>
+          <%= render partial: "users/tweet", collection: @tweets %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

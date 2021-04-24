@@ -1,0 +1,31 @@
+<%= div_for tweet, class: "list-group-item" do |t| %>
+  <h4 class="user">
+    <span class="user-name">
+      <%= link_to t.user.name, user_path(t.user) %>
+    </span>
+    <span class="user-id">
+      <%= t.user.name %>
+    </span>
+    <span class="time pull-right">
+      <%= distance_of_time_in_words_to_now(t.created_at) %>
+    </span>
+    <div class="clear"></div>
+  </h4>
+  <div class="tweet-content">
+    <p>
+      <%= t.content %>
+    </p>
+    <div class="content-footer">
+      <% if t.favorited_by? current_user %>
+        <%= link_to "お気に入りの解除", tweet_favorites_path(t), method: :delete %>
+      <% else %>
+        <%= link_to "お気に入りに登録", tweet_favorites_path(t), method: :post %>
+      <% end %>
+      <% if t.user.followed_by? current_user %>
+        <%= link_to "フォロー解除", user_follows_path(t.user), method: :delete %>
+      <% else %>
+        <%= link_to "フォロー", user_follows_path(t.user), method: :post %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
