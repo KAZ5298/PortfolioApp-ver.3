@@ -1,6 +1,6 @@
 class FollowsController < ApplicationController
-  before_action :require_login
- 
+  include SessionsHelper
+
   def create
     @user = User.find(params[:user_id])
     if @user.inverse_follows.create(follower: current_user)

@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-  before_filter :require_login
-  
+  include SessionsHelper
+
   def create
     @tweet    = Tweet.find(params[:tweet_id])
     @favorite = current_user.favorites.build(tweet: @tweet)
