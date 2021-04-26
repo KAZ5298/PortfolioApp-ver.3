@@ -38,6 +38,7 @@ group :development, :test do
   gem 'jquery-rails' 
   gem 'jquery-ui-rails'
   gem 'bootstrap'
+  gem 'uglifier'
 end
 
 group :development do
