@@ -13,43 +13,43 @@
   <div class="bio">
     <%= @user.bio %>
   </div>
-  <ul class="nav nav-tabs nav-justified">
+  <ul class="nav nav-tabs justify-content-around">
     <li class="<%= action_name == "show" ? "active" : nil %>">
       <%= link_to user_path(@user) do %>
-        <div class="text">
+        <div style="text-align:center;">
           つぶやき
           </div>
-        <div class="num">
+        <div style="text-align:center;">
           <%= @user.tweets.count %>
         </div>
       <% end %>
     </li>
     <li class="<%= action_name == "follows" ? "active" : nil %>">
       <%= link_to follows_user_path(@user) do %>
-        <div class="text">
+        <div style="text-align:center;">
           フォロー
         </div>
-        <div class="num">
+        <div style="text-align:center;">
           <%= @user.inverse_followers.count %>
         </div>
       <% end %>
     </li>
     <li class="<%= action_name == "followers" ? "active" : nil %>">
       <%= link_to followers_user_path(@user) do %>
-        <div class="text">
+        <div style="text-align:center;">
           フォロワー
         </div>
-        <div class="num">
+        <div style="text-align:center;">
           <%= @user.followers.count %>
         </div>
       <% end %>
     </li>
     <li>
       <%= link_to favorites_user_path(@user) do %>
-        <div class="text">
+        <div style="text-align:center;">
           お気に入り
         </div>
-        <div class="num">
+        <div style="text-align:center;">
           <%= @user.favorites.count %>
         </div>
       <% end %>
