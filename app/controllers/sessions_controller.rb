@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   
   def create
     email = params_user[:email]
-    user = User.find_by(params[:email])
+    user = User.find_by(email: params_user[:email])
     if user && user.authenticate(params_user[:password])
       log_in(user)
       redirect_to tweets_url, notice: "ログインしました"
