@@ -120,5 +120,4 @@ Rails.application.configure do
   
   config.server_static_files = true
   
-  config.assets.js_compressor = :uglifier
 end
