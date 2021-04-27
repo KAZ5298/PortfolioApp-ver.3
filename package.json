@@ -1,5 +1,5 @@
 {
-  "name": "portfolioapp",
+  "name": "sample",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -11,8 +11,28 @@
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0"
   },
-  "version": "0.1.0",
+  "version": "0.0.0",
   "devDependencies": {
     "webpack-dev-server": "^3.11.2"
-  }
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KAZ5298/PortfolioApp-ver.3.git"
+  },
+  "author": "DEMURA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KAZ5298/PortfolioApp-ver.3/issues"
+  },
+  "homepage": "https://github.com/KAZ5298/PortfolioApp-ver.3#readme"
 }
