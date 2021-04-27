@@ -26,6 +26,7 @@
       <% else %>
         <%= link_to "フォロー", user_follows_path(t.user), method: :post %>
       <% end %>
+      <%= link_to "削除", tweet_path(t), method: :delete %>
     </div>
   </div>
 <% end %>
