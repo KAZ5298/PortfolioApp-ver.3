@@ -26,8 +26,10 @@
       <% else %>
         <%= link_to "フォロー", user_follows_path(t.user), method: :post %>
       <% end %>
-      <%= link_to "編集", tweet_path(t), method: :get %>
-      <%= link_to "削除", tweet_path(t), method: :delete %>
+      <% if current_user.id == tweet.user_id %>
+        <%= link_to "編集", tweet_path(t), method: :get %>
+        <%= link_to "削除", tweet_path(t), method: :delete, data: { confirm: "削除しますか？" } %>
+      <% end %>
     </div>
   </div>
 <% end %>

@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
   def index
     @tweets = Tweet.all
     @tweet = Tweet.new
+    @tweet_user = Tweet.find_by(user_id: session[:user_id])
   end
   
   def timeline
