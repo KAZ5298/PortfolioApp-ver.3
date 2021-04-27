@@ -37,7 +37,6 @@ group :development, :test do
   gem 'record_tag_helper'
   gem 'jquery-rails' 
   gem 'jquery-ui-rails'
-  gem 'bootstrap'
   gem 'uglifier'
 end
 
