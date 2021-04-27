@@ -16,19 +16,20 @@
       <%= t.content %>
     </p>
     <div class="content-footer">
-      <% if t.favorited_by? current_user %>
-        <%= link_to "お気に入りの解除", tweet_favorites_path(t), method: :delete %>
-      <% else %>
-        <%= link_to "お気に入りに登録", tweet_favorites_path(t), method: :post %>
-      <% end %>
-      <% if t.user.followed_by? current_user %>
-        <%= link_to "フォロー解除", user_follows_path(t.user), method: :delete %>
-      <% else %>
-        <%= link_to "フォロー", user_follows_path(t.user), method: :post %>
-      <% end %>
       <% if current_user.id == tweet.user_id %>
         <%= link_to "編集", tweet_path(t), method: :get %>
         <%= link_to "削除", tweet_path(t), method: :delete, data: { confirm: "削除しますか？" } %>
+      <% else %>
+        <% if t.favorited_by? current_user %>
+          <%= link_to "お気に入りの解除", tweet_favorites_path(t), method: :delete %>
+        <% else %>
+          <%= link_to "お気に入りに登録", tweet_favorites_path(t), method: :post %>
+        <% end %>
+        <% if t.user.followed_by? current_user %>
+          <%= link_to "フォロー解除", user_follows_path(t.user), method: :delete %>
+        <% else %>
+          <%= link_to "フォロー", user_follows_path(t.user), method: :post %>
+        <% end %>
       <% end %>
     </div>
   </div>
