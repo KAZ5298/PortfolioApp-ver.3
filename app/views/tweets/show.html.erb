@@ -1,0 +1,18 @@
+<div class="container">
+  <div id="tweets-show">
+    <div class="row">
+      <div class="col tweets-content">
+        <%= form_for @tweet, url: tweet_path, method: :put do |f| %>
+          <h2>ツイート編集</h2>
+          <div class="form-body">
+            <div class="form-group">
+              <%= f.label :content, "内容", class: "control-label" %>
+              <%= f.text_area :content, class: "form-control" %>
+            </div>
+            <%= f.submit "更新", class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

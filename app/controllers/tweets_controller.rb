@@ -16,6 +16,7 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1 or /tweets/1.json
   def show
+    @tweet = Tweet.find(params[:id])
   end
 
   # GET /tweets/new
@@ -25,6 +26,7 @@ class TweetsController < ApplicationController
 
   # GET /tweets/1/edit
   def edit
+    @tweet = tweet_params
   end
 
   # POST /tweets or /tweets.json
@@ -47,7 +49,7 @@ class TweetsController < ApplicationController
   def update
     respond_to do |format|
       if @tweet.update(tweet_params)
-        format.html { redirect_to @tweet, notice: "ツイートを更新しました" }
+        format.html { redirect_to tweets_url, notice: "ツイートを更新しました" }
         format.json { render :show, status: :ok, location: @tweet }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,13 +68,14 @@ class TweetsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_tweet
-      @tweet = Tweet.find(params[:id])
-    end
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_tweet
+    @tweet = Tweet.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def tweet_params
-      params.require(:tweet).permit(:user_id, :content)
-    end
+  # Only allow a list of trusted parameters through.
+  def tweet_params
+    params.require(:tweet).permit(:user_id, :content)
+  end
 end

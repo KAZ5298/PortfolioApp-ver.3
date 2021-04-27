@@ -17,7 +17,6 @@ class SettingsController < ApplicationController
     else
       render :edit, notice: "プロフィールの更新に失敗しました"
     end
-    
   end
  
   private
