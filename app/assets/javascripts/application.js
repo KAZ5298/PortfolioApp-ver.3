@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require_tree .
 
-import 'bootstrap';
-import '../stylesheets/application';
+import 'bootstrap'
+import './src/application.scss'
