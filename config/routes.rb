@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :rooms, only: [:show, :create]
   resource :sessions, only: [:new, :create, :destroy]
   resource :settings, only: [:edit, :update]
   resource :registrations, only: [:new, :create]
