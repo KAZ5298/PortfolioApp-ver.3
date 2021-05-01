@@ -1,0 +1,12 @@
+<h1>チャットルーム一覧</h1>
+<table class="rooms">
+  <tbody>
+    <tr>
+      <td>
+        <% @chat_partners.each do |chat_partner| %>
+          <%= link_to "#{chat_partner.name}さんとのチャットルーム", "/chats/#{chat_partner.id}" %>
+        <% end %>
+      </td>
+    </tr>
+  </tbody>
+</table>

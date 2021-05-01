@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resource :chats, only: [:show, :create]
   resource :sessions, only: [:new, :create, :destroy]
   resource :settings, only: [:edit, :update]
   resource :registrations, only: [:new, :create]
+  resources :chats, only: [:index, :show,]
   resources :users, only: [:index, :show] do
     resource :follows, only: [:create, :destroy]
     get :favorites, on: :member
@@ -13,5 +13,6 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
     get :timeline, on: :collection
   end
+  mount ActionCable.server => '/cable'
   root to: 'registrations#new'
 end

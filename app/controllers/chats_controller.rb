@@ -1,11 +1,16 @@
 class ChatsController < ApplicationController
-  def show
-    @content = Chat.all
+  include SessionsHelper
+  
+  def index
+    @my_chats = current_user.chats
+    @chat_partners = User.where.not(id: current_user.id)
   end
-
-  def create
-    @contents = Chat.new(content: params[:message])
-    @contents.save
-    redirect_to chats_path
+  
+  def show
+    @partner = User.find(params[:id])
+    @chat_by_myself = Chat.where(user_id: current_user.id, partner_id: @partner.id)
+    @chat_by_other = Chat.where(user_id: @partner.id, partner_id: current_user.id)
+    @chats = @chat_by_myself.or(@chat_by_other)
+    @chats = @chats.order(:created_at)
   end
 end
