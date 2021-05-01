@@ -1,4 +1,4 @@
-class RoomsController < ApplicationController
+class ChatsController < ApplicationController
   def show
     @content = Chat.all
   end
@@ -6,6 +6,6 @@ class RoomsController < ApplicationController
   def create
     @contents = Chat.new(content: params[:message])
     @contents.save
-    redirect_to rooms_path
+    redirect_to chats_path
   end
 end

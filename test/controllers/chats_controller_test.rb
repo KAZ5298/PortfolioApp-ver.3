@@ -1,13 +1,13 @@
 require "test_helper"
 
-class RoomsControllerTest < ActionDispatch::IntegrationTest
+class ChatsControllerTest < ActionDispatch::IntegrationTest
   test "should get show" do
-    get rooms_show_url
+    get chats_show_url
     assert_response :success
   end
 
   test "should get create" do
-    get rooms_create_url
+    get chats_create_url
     assert_response :success
   end
 end

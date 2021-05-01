@@ -4,6 +4,6 @@
   <li><%= message.content %></li>
   <% end %>
 </ul>
-<%= form_tag(rooms_path, method: :post) do %>
+<%= form_tag(chats_path, method: :post) do %>
   <input id="chat-form" type="text" data-behavior="chat_post" name="message">
 <% end %>
