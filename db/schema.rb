@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_01_144232) do
+ActiveRecord::Schema.define(version: 2021_05_02_110426) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id", null: false

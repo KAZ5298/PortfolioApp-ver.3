@@ -17,3 +17,4 @@
 //= require_tree .
 
 import 'bootstrap'
+require('jquery');

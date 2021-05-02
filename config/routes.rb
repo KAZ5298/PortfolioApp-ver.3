@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resource :sessions, only: [:new, :create, :destroy]
   resource :settings, only: [:edit, :update]
   resource :registrations, only: [:new, :create]
-  resources :chats, only: [:index, :show,]
+  resources :chats, only: [:index, :show]
   resources :users, only: [:index, :show] do
     resource :follows, only: [:create, :destroy]
     get :favorites, on: :member

@@ -1,4 +1,6 @@
-App.chat = App.cable.subscriptions.create("ChatChannel", {
+import consumer from "./consumer"
+
+consumer.subscriptions.create("ChatChannel", {
   connected: function() {
     // Called when the subscription is ready for use on the server
   },
@@ -13,7 +15,7 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     //画面を開いているのがチャット受信者だった場合
     else{
       content=`<div class='fukidasi'><div class='faceicon'>
-      </div>
+      <img src='/assets/profile.png' alt='管理人'></div>
       <div class='chatting'><div class='says'><p>${data["content"]}</p>
       </div></div></div>`;
     }
