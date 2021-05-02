@@ -20,9 +20,9 @@
   <% end %>
 </div>
 <form id="send-form">
-  <input type="text" id="content" placeholder="入力してね" style="width:30%;">
-  <input type="submit" value="送信" id="send">
   <input id="current_user_id" type="hidden" value= "<%= current_user.id %>">
   <input id="partner_id" type="hidden" value= "<%= @partner.id %>">
+  <input type="text" id="content" placeholder="入力してね" style="width:30%;">
+  <input type="submit" value="送信" id="send">
 </form>
 <%= link_to("チャットルーム一覧へ", chats_path) %>

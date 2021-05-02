@@ -13,7 +13,7 @@ App.chat = App.cable.subscriptions.create("ChatChannel", {
     //画面を開いているのがチャット受信者だった場合
     else{
       content=`<div class='fukidasi'><div class='faceicon'>
-      <img src='/assets/profile.png' alt='管理人'></div>
+      </div>
       <div class='chatting'><div class='says'><p>${data["content"]}</p>
       </div></div></div>`;
     }
