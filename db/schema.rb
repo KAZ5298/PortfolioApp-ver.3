@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_02_110426) do
+ActiveRecord::Schema.define(version: 2021_05_03_103310) do
 
-  create_table "chats", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "partner_id", null: false
-    t.text "content", null: false
+  create_table "entries", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -37,6 +36,20 @@ ActiveRecord::Schema.define(version: 2021_05_02_110426) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["follower_id"], name: "index_follows_on_follower_id"
     t.index ["inverse_follower_id"], name: "index_follows_on_inverse_follower_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "room_id"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "tweets", force: :cascade do |t|
