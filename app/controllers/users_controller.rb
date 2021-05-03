@@ -25,7 +25,6 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-    #binding.pry
   end
   
   def favorites
