@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_05_03_103310) do
 
-  create_table "entries", force: :cascade do |t|
+  create_table "entries", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "tweet_id"
     t.datetime "created_at", precision: 6, null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_103310) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "follows", force: :cascade do |t|
+  create_table "follows", charset: "utf8", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "inverse_follower_id"
     t.datetime "created_at", precision: 6, null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_103310) do
     t.index ["inverse_follower_id"], name: "index_follows_on_inverse_follower_id"
   end
 
-  create_table "messages", force: :cascade do |t|
+  create_table "messages", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "room_id"
     t.text "message"
@@ -46,13 +46,13 @@ ActiveRecord::Schema.define(version: 2021_05_03_103310) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "rooms", force: :cascade do |t|
+  create_table "rooms", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "tweets", force: :cascade do |t|
+  create_table "tweets", charset: "utf8", force: :cascade do |t|
     t.integer "user_id"
     t.string "content"
     t.datetime "created_at", precision: 6, null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_05_03_103310) do
     t.index ["user_id"], name: "index_tweets_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
     t.datetime "created_at", precision: 6, null: false
