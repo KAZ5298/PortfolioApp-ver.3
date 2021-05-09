@@ -16,7 +16,6 @@ default: &default
   username: root
   password:
   #socket: /tmp/mysql.sock
-  host: localhost
 
 development:
   <<: *default
@@ -54,3 +53,4 @@ production:
   database: PortfolioApp_ver_3_production
   username: PortfolioApp_ver_3
   password: <%= ENV['PORTFOLIOAPP_VER_3_DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
