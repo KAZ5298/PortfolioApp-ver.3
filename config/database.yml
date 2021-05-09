@@ -53,4 +53,4 @@ production:
   database: PortfolioApp_ver_3_production
   username: PortfolioApp_ver_3
   password: <%= ENV['PORTFOLIOAPP_VER_3_DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  url: <%= ENV['JAWSDB_URL']&.sub('mysql://', 'mysql2://') %>
