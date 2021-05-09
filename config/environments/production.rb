@@ -120,6 +120,6 @@ Rails.application.configure do
   
   config.server_static_files = true
   
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   
 end
