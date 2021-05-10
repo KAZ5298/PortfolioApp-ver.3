@@ -7,7 +7,7 @@
           まだツイートはありません
         </div>
       <% end %>
-      <%= render partial: "users/tweet", collection: @user.tweets %>
+      <%= render partial: "users/tweet", collection: @user.tweets, as: "t" %>
     </div>
   </div>
 </div>

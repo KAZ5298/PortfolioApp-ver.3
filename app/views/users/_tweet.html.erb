@@ -1,4 +1,4 @@
-<%= div_for tweet, class: "list-group-item" do |t| %>
+<div class="list-group-item">
   <h4 class="user">
     <span class="user-name">
       <%= link_to t.user.name, user_path(t.user) %>
@@ -14,7 +14,7 @@
   <div class="tweet-content">
     <p><%= t.content %></p>
     <div class="content-footer">
-      <% if current_user.id == tweet.user_id %>
+      <% if current_user.id == t.user_id %>
         <%= link_to "編集", tweet_path(t), method: :get %>
         <%= link_to "削除", tweet_path(t), method: :delete, data: { confirm: "削除しますか？" } %>
       <% else %>
@@ -31,4 +31,4 @@
       <% end %>
     </div>
   </div>
-<% end %>
+</div>
