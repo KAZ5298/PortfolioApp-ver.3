@@ -12,9 +12,7 @@
     <div class="clear"></div>
   </h4>
   <div class="tweet-content">
-    <p>
-      <%= t.content %>
-    </p>
+    <p><%= t.content %></p>
     <div class="content-footer">
       <% if current_user.id == tweet.user_id %>
         <%= link_to "編集", tweet_path(t), method: :get %>
