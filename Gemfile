@@ -38,7 +38,6 @@ group :development, :test do
   gem 'jquery-rails'
   gem 'jquery-ui-rails'
   gem 'uglifier'
-  gem 'record_tag_helper', '>= 0'
 end
 
 group :development do
@@ -67,5 +66,4 @@ group :production do
   gem 'mysql2', '>= 0'
   gem 'uglifier'
   gem 'bootstrap'
-  gem 'record_tag_helper', '>= 0'
 end
