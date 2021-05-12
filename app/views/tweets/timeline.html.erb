@@ -17,7 +17,7 @@
               <%= link_to "フォローしている人のつぶやき", timeline_tweets_path, class: "active btn btn-primary" %>
             </div>
           </div>
-          <%= render partial: "users/tweet", collection: @tweets %>
+          <%= render partial: "users/tweet", collection: @tweets, as: "t" %>
         </div>
       </div>
     </div>

@@ -6,6 +6,6 @@
         まだお気に入りに登録されたツイートはありません
       </div>
     <% end %>
-    <%= render partial: "users/tweet", collection: @user.favorites.map{|f| f.tweet} %>
+    <%= render partial: "users/tweet", collection: @user.favorites.map{|f| f.tweet}, as: "t" %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="col-xs-8" id="users-content">
   <%= render partial: "users/header" %>
   <div class="list-group">
-    <%= render @user.inverse_followers %>
+    <%= render partial: @user.inverse_followers, collection: @user.inverse_followers, as: "u" %>
   </div>
 </div>
