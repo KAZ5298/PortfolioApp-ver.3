@@ -1,14 +1,18 @@
-<h4 class="rooms-title">気になる同士</h4>
+<h4 class="rooms-title">トークルーム</h4>
 <% @entries.each do |e| %>
   <div class="user-name">
     <% if e.user.id == current_user.id %>
-      <strong><a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        自分：<%= e.user.name %>さん
-      </strong></a>
+      <strong>
+        <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+          自分：<%= e.user.name %>さん
+        </a>
+      </strong>
     <% else %>
-      <strong><a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        相手：<%= e.user.name %>さん
-      </strong></a>
+      <strong>
+        <a class="rooms-user-link" href="/users/<%= e.user.id %>">
+          相手：<%= e.user.name %>さん
+        </a>
+      </strong>
     <% end %>
   </div>
 <% end %>
