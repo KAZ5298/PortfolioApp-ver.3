@@ -1,7 +1,11 @@
 <div class="list-group-item">
   <h4 class="user">
     <span class="user-name">
-      <%= link_to u.name, user_path(u) %>
+      <% if u.screen_name != nil %>
+        <%= link_to u.screen_name, user_path(u) %>
+      <% else %>
+        <%= link_to u.name, user_path(u) %>
+      <% end %>
     </span>
     <span class="user-id">
       <%= u.name %>

@@ -50,7 +50,7 @@ html, body {
       border: none;
       border-bottom: 1px solid #ddd;
       margin-bottom: 0px;
-      &:last-child .user {
+      .user {
         .user-name {
           a {
             color: #555;
