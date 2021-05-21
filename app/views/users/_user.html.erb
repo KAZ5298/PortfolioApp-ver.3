@@ -1,26 +1,46 @@
-<div class="list-group-item">
-  <h4 class="user">
-    <span class="user-name">
-      <% if u.screen_name != nil %>
-        <%= link_to u.screen_name, user_path(u) %>
-      <% else %>
-        <%= link_to u.name, user_path(u) %>
+  <div class="list-group-item">
+    <h4 class="user">
+      <span class="user-name">
+        <% if u.screen_name != nil %>
+          <%= link_to u.screen_name, user_path(u) %>
+        <% else %>
+          <%= link_to u.name, user_path(u) %>
+        <% end %>
+      </span>
+      <span class="user-id">
+        <%= u.name %>
+      </span>
+    </h4>
+    <div class="bio">
+      <%= u.bio %>
+    </div>
+    <div class="follow-unfollow">
+      <% if current_user.id != u.id %>
+        <% if u.followed_by? current_user %>
+          <%= link_to "フォロー解除", user_follows_path(u), method: :delete %>
+        <% else %>
+          <%= link_to "フォロー", user_follows_path(u), method: :post %>
+        <% end %>
       <% end %>
-    </span>
-    <span class="user-id">
-      <%= u.name %>
-    </span>
-  </h4>
-  <div class="bio">
-    <%= u.bio %>
-  </div>
-  <div class="follow-unfollow">
-    <% if current_user.id != u.id %>
-      <% if u.followed_by? current_user %>
-        <%= link_to "フォロー解除", user_follows_path(u), method: :delete %>
-      <% else %>
-        <%= link_to "フォロー", user_follows_path(u), method: :post %>
+    </div>
+    <%# binding.pry %>
+    <% unless u.id == current_user.id %>
+      <% if (current_user.followed_by? u) && (u.followed_by? current_user)  %>
+        <% if @isRoom == true %>
+          <p class="user-show-room">
+            <a href="/rooms/<%= @roomId %>" class="btn btn-primary btn-lg">
+              ダイレクトメッセージ
+            </a>
+          </p>
+        <% else %>
+          <%= form_for @room do |f| %>
+            <%= fields_for @entry do |e| %>
+              <%= e.hidden_field :user_id, value: u.id %>
+            <% end %>
+            <%= f.submit "ダイレクトメッセージ", class:"btn btn-primary btn-lg user-show-chat"%>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-  </div>
+  <%#= render partial: "users/directmessage" %>
 </div>
